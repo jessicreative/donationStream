@@ -339,6 +339,7 @@ for (i = 0; i < x.length; i++) {
           list -= 1;
           console.log("sk7: input = element ", i, x[i], "innerHTML: ", )
           callAPIorgsSearch(input);
+          getCaptcha();
   } else { 
     x[i].style.display="list-item";
           list += 1;
@@ -605,7 +606,7 @@ function esckey(event) {
         : 
         <div></div>
       }
-          <center>
+          {/* <center>
                   <button onClick={() => {
                       callAPI();
                       getCaptcha();
@@ -618,13 +619,17 @@ function esckey(event) {
                   dark:hover:bg-gray-700 my-10">
                       Get Organizations
                   </button>
-              </center>
+              </center> */}
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <div className="search-area">
             <div onclick="hideallfunction()" id="hideall"></div>
             <div id="search-section-js" className="searchsection">
                 <div role="search" className="search">
-                    <input tabIndex="1" id="search-bar-js" className="searchbar" type="search" aria-label="Search text" placeholder="Search..." name="search" />
+                    <input tabIndex="1" id="search-bar-js" className="searchbar bg-gray-50 border border-gray-300 
+                  text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                  focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 
+                  dark:border-gray-600 dark:placeholder-gray-400 my-5
+                  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" aria-label="Search text" placeholder="Search..." name="search" />
                     {/* <button tabIndex="-1" className="searchbutton" id="close-img-js" aria-label="Cancel"><img src="../media/close/round_close_black_24dp.png" alt="cancel" class="closeimg globalsearchremove searchbutton" id="close-img-js" aria-label="Cancel" /></button>
                     <button tabIndex="2" className="searchbutton" id="search-img-js" aria-label="Search"><img src="../media/search/round_search_black_24dp.png" alt="search" class="searchimg" /></button> */}
                 </div>
