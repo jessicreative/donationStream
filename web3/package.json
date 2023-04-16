@@ -9,7 +9,9 @@
     "hardhat": "^2.10.1"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^2.5.1",
     "@thirdweb-dev/contracts": "^3",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "openzeppelin-solidity": "^2.2.0"
   }
 }
