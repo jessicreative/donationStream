@@ -64,10 +64,10 @@ export default function Stream() {
 
 //   // export const CreateFlow = () => {
 //     const CreateFlow = () => {
-//     const [recipient, setRecipient] = useState("");
-//     const [isButtonLoading, setIsButtonLoading] = useState(false);
-//     const [flowRate, setFlowRate] = useState("");
-//     const [flowRateDisplay, setFlowRateDisplay] = useState("");
+    const [recipient, setRecipient] = useState("");
+    const [isButtonLoading, setIsButtonLoading] = useState(false);
+    const [flowRate, setFlowRate] = useState("");
+    const [flowRateDisplay, setFlowRateDisplay] = useState("");
     const [currentAccount, setCurrentAccount] = useState("");
 
     const connectWallet = async () => {
@@ -139,23 +139,23 @@ export default function Stream() {
 //       }
 //     }
 
-//     function CreateButton({ isLoading, children, ...props }) {
-//       return (
-//         <Button variant="success" className="button" {...props}>
-//           {isButtonLoading ? <Spinner animation="border" /> : children}
-//         </Button>
-//       );
-//     }
+    // function CreateButton({ isLoading, children, ...props }) {
+    //   return (
+    //     <Button variant="success" className="button" {...props}>
+    //       {isButtonLoading ? <Spinner animation="border" /> : children}
+    //     </Button>
+    //   );
+    // }
 
-//     const handleRecipientChange = (e) => {
-//       setRecipient(() => ([e.target.name] = e.target.value));
-//     };
+    const handleRecipientChange = (e) => {
+      setRecipient(() => ([e.target.name] = e.target.value));
+    };
 
-//     const handleFlowRateChange = (e) => {
-//       setFlowRate(() => ([e.target.name] = e.target.value));
-//       let newFlowRateDisplay = calculateFlowRate(e.target.value);
-//       setFlowRateDisplay(newFlowRateDisplay.toString());
-//     };
+    const handleFlowRateChange = (e) => {
+      setFlowRate(() => ([e.target.name] = e.target.value));
+      let newFlowRateDisplay = calculateFlowRate(e.target.value);
+      setFlowRateDisplay(newFlowRateDisplay.toString());
+    };
 
     return (
         <div>
@@ -175,37 +175,46 @@ export default function Stream() {
                 )}`}
             </Card>
             )}
-        </div>
-//         <Form>
-//           <FormGroup className="mb-3">
-//             <FormControl
-//               name="recipient"
-//               value={recipient}
-//               onChange={handleRecipientChange}
-//               placeholder="Enter recipient address"
-//             ></FormControl>
-//           </FormGroup>
-//           <FormGroup className="mb-3">
-//             <FormControl
-//               name="flowRate"
-//               value={flowRate}
-//               onChange={handleFlowRateChange}
-//               placeholder="Enter a flowRate in wei/second"
-//             ></FormControl>
-//           </FormGroup>
-//           <CreateButton
-//             onClick={() => {
-//               setIsButtonLoading(true);
-//               createNewFlow(recipient, flowRate);
-//               setTimeout(() => {
-//                 setIsButtonLoading(false);
-//               }, 1000);
-//             }}
-//           >
-//             Click to Create Your Stream
-//           </CreateButton>
-//         </Form>
-
+            <form onSubmit={() => {
+                    setIsButtonLoading(true);
+                    createNewFlow(recipient, flowRate);
+                    setTimeout(() => {
+                    setIsButtonLoading(false);
+                    }, 1000);
+                }}>
+                <input
+                    class="bg-gray-50 border border-gray-300 
+                    text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                    focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 
+                    dark:border-gray-600 dark:placeholder-gray-400 my-5
+                    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                    name="recipient"
+                    placeholder="Recipient address"
+                    onChange={handleRecipientChange}
+                    value={recipient} 
+                    required
+                />
+                <input
+                    class="bg-gray-50 border border-gray-300 
+                    text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                    focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 
+                    dark:border-gray-600 dark:placeholder-gray-400 my-5
+                    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    name="flowRate"
+                    value={flowRate}
+                    onChange={handleFlowRateChange}
+                    placeholder="Enter a flowRate in wei/second"
+                    required
+                />
+                <center>
+                    <button class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none 
+                    focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 
+                    mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                    type="submit">Click to Create Your Stream </button>
+                </center>
+            </form>
+    </div>
+//         
 //         <div>
 //           <p>
 //             Go to the CreateFlow.js component and look at the <b>createFlow() </b>
