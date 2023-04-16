@@ -19,6 +19,18 @@ export default function Orgs() {
     };
 
     return (
+        <div>
+        <center>
+                <button onClick={callAPI} type="button" 
+                class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 
+                focus:outline-none bg-white rounded-lg border border-gray-200 
+                hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 
+                focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 
+                dark:text-gray-400 dark:border-gray-600 dark:hover:text-white 
+                dark:hover:bg-gray-700 my-10">
+                    Get Organizations
+                </button>
+            </center>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <div className="search-area">
             <div onclick="hideallfunction()" id="hideall"></div>
@@ -47,7 +59,6 @@ export default function Orgs() {
                 <script src="./searchbar.js" defer></script>
             </Helmet> */}
             </div>
-            <button onClick={callAPI}>Make API call</button>
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -90,6 +101,7 @@ export default function Orgs() {
                 ))}
                 </tbody>
             </table>
+        </div>
         </div>
     );
   }

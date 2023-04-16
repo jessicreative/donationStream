@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "../styles/Home.module.css";
 import { Framework } from "@superfluid-finance/sdk-core";
 import {
   Button,
@@ -10,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { ethers } from "ethers";
 
-export default function Home() {
+export default function Stream() {
 
   let account;
 
@@ -61,8 +62,6 @@ export default function Home() {
     }
   }
 
-  // export const CreateFlow = () => {
-    const CreateFlow = () => {
     const [recipient, setRecipient] = useState("");
     const [isButtonLoading, setIsButtonLoading] = useState(false);
     const [flowRate, setFlowRate] = useState("");
@@ -85,7 +84,7 @@ export default function Home() {
         account = currentAccount;
         // Setup listener! This is for the case where a user comes to our site
         // and connected their wallet for the first time.
-        // setupEventListener()
+        setupEventListener()
       } catch (error) {
         console.log(error);
       }
@@ -138,13 +137,13 @@ export default function Home() {
       }
     }
 
-    function CreateButton({ isLoading, children, ...props }) {
-      return (
-        <Button variant="success" className="button" {...props}>
-          {isButtonLoading ? <Spinner animation="border" /> : children}
-        </Button>
-      );
-    }
+    // function CreateButton({ isLoading, children, ...props }) {
+    //   return (
+    //     <Button variant="success" className="button" {...props}>
+    //       {isButtonLoading ? <Spinner animation="border" /> : children}
+    //     </Button>
+    //   );
+    // }
 
     const handleRecipientChange = (e) => {
       setRecipient(() => ([e.target.name] = e.target.value));
@@ -157,62 +156,68 @@ export default function Home() {
     };
 
     return (
-      <div>
-        <h2>Create a Flow</h2>
-        {currentAccount === "" ? (
-          <button id="connectWallet" className="button" onClick={connectWallet}>
-            Connect Wallet
-          </button>
-        ) : (
-          <Card>
-            {`${currentAccount.substring(0, 4)}...${currentAccount.substring(
-              38
-            )}`}
-          </Card>
-        )}
-        <Form>
-          <FormGroup className="mb-3">
-            <FormControl
-              name="recipient"
-              value={recipient}
-              onChange={handleRecipientChange}
-              placeholder="Enter recipient address"
-            ></FormControl>
-          </FormGroup>
-          <FormGroup className="mb-3">
-            <FormControl
-              name="flowRate"
-              value={flowRate}
-              onChange={handleFlowRateChange}
-              placeholder="Enter a flowRate in wei/second"
-            ></FormControl>
-          </FormGroup>
-          <CreateButton
-            onClick={() => {
-              setIsButtonLoading(true);
-              createNewFlow(recipient, flowRate);
-              setTimeout(() => {
-                setIsButtonLoading(false);
-              }, 1000);
-            }}
-          >
-            Click to Create Your Stream
-          </CreateButton>
-        </Form>
-
         <div>
-          <p>
-            Go to the CreateFlow.js component and look at the <b>createFlow() </b>
-            function to see under the hood
-          </p>
-          <div>
-            <p>Your flow will be equal to:</p>
-            <p>
-              <b>${flowRateDisplay !== " " ? flowRateDisplay : 0}</b> DAIx/month
-            </p>
-          </div>
+            <h2 className = "mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Create a Flow</h2>
+            {currentAccount === "" ? (
+                <center>
+                    <button id="connectWallet" onClick={connectWallet} type="button" 
+                    class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium 
+                    rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                        Connect Wallet
+                    </button>
+                </center>
+            ) : (
+            <Card>
+                {`${currentAccount.substring(0, 4)}...${currentAccount.substring(
+                38
+                )}`}
+            </Card>
+            )}
+            <form>
+                <input
+                    class="bg-gray-50 border border-gray-300 
+                    text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                    focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 
+                    dark:border-gray-600 dark:placeholder-gray-400 my-5
+                    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                    name="recipient"
+                    placeholder="Recipient address"
+                    onChange={handleRecipientChange}
+                    value={recipient} 
+                    required
+                />
+                <input
+                    class="bg-gray-50 border border-gray-300 
+                    text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                    focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 
+                    dark:border-gray-600 dark:placeholder-gray-400 my-5
+                    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    name="flowRate"
+                    value={flowRate}
+                    onChange={handleFlowRateChange}
+                    placeholder="Enter a flowRate in wei/second"
+                    required
+                />
+                <center>
+                    <button class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none 
+                    focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 
+                    mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                    type="button" onClick={() => {
+                        setIsButtonLoading(true);
+                        createNewFlow(recipient, flowRate);
+                        setTimeout(() => {
+                        setIsButtonLoading(false);
+                        }, 1000);
+                    }}>Click to Create Your Stream </button>
+                </center>
+            </form>
+            <div>
+                <p>Your flow will be equal to:</p>
+                <p>
+                <b>${flowRateDisplay !== " " ? flowRateDisplay : 0}</b> DAIx/month
+                </p>
+            </div>
         </div>
-      </div>
     );
-  };
+//   };
 }
