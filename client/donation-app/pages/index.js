@@ -629,7 +629,7 @@ function esckey(event) {
                   text-gray-900 text-sm rounded-lg focus:ring-blue-500 
                   focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 
                   dark:border-gray-600 dark:placeholder-gray-400 my-5
-                  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" aria-label="Search text" placeholder="Search..." name="search" />
+                  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" aria-label="Search text" placeholder="Search for organization category: 'Arts, Education, Health, Legal, and Employment'..." name="search" />
                     {/* <button tabIndex="-1" className="searchbutton" id="close-img-js" aria-label="Cancel"><img src="../media/close/round_close_black_24dp.png" alt="cancel" class="closeimg globalsearchremove searchbutton" id="close-img-js" aria-label="Cancel" /></button>
                     <button tabIndex="2" className="searchbutton" id="search-img-js" aria-label="Search"><img src="../media/search/round_search_black_24dp.png" alt="search" class="searchimg" /></button> */}
                 </div>
@@ -637,7 +637,7 @@ function esckey(event) {
                     <div className="borderbetween globalsearchremove"></div>
                 </div>
                 <div className="middle">
-                <ul tabIndex="3" className="list globalsearchremove">
+                <ul tabIndex="3" className="list globalsearchremove" style={{display:'none'}}>
                     <li className="section" role="option">Arts</li>
                     <li className="section" role="option">Education</li>
                     <li className="section" role="option">Health</li>
