@@ -118,7 +118,7 @@ export default function Orgs() {
         </div>
     );
   }
-  function afterload() {
+function afterload() {
     document.querySelector('.searchbar').value = "";
 console.log("hello sk7"); 
 
