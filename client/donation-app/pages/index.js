@@ -17,7 +17,7 @@ export default function Home() {
         </div>
         <Stream />
         <Orgs />
-        
+        <link rel="stylesheet" href="../styles/searchbar.css" />
       </main>
     </div>
   );
