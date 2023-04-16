@@ -108,7 +108,7 @@ export default function Orgs() {
                             {name.nteeDescription}
                         </td>
                         <td className="px-6 py-4">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Donate</a>
+                            <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Donate</button>
                         </td>
                     </tr>
                 ))}
