@@ -7,10 +7,10 @@ a.exception{
     color: white;
 }
 
-div {
+/* div {
     display: flex;
     justify-content: center;
-    }
+    } */
 
 
     div#hideall {
@@ -26,10 +26,10 @@ div {
 	border: none;
 }
 
-div.middle {
+/* div.middle {
     display: flex;
     justify-content: center;
-}
+} */
 
 .changeposition {
     order: -1;

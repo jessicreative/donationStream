@@ -1,4 +1,6 @@
 import React from "react";
+// import {Helmet} from "react-helmet";
+import searchbarjs from "./searchbar.js";
 
 export default function Orgs() {
 
@@ -18,11 +20,13 @@ export default function Orgs() {
 
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <div id="search-ssection-js" className="searchsection">
+            <div className="search-area">
+            <div onclick="hideallfunction()" id="hideall"></div>
+            <div id="search-section-js" className="searchsection">
                 <div role="search" className="search">
                     <input tabIndex="1" id="search-bar-js" className="searchbar" type="search" aria-label="Search text" placeholder="Search..." name="search" />
-                    <button tabIndex="-1" className="searchbutton" id="close-img-js" aria-label="Cancel"><img src="../media/close/round_close_black_24dp.png" alt="cancel" class="closeimg globalsearchremove searchbutton" id="close-img-js" aria-label="Cancel" /></button>
-                    <button tabIndex="2" className="searchbutton" id="search-img-js" aria-label="Search"><img src="../media/search/round_search_black_24dp.png" alt="search" class="searchimg" /></button>
+                    {/* <button tabIndex="-1" className="searchbutton" id="close-img-js" aria-label="Cancel"><img src="../media/close/round_close_black_24dp.png" alt="cancel" class="closeimg globalsearchremove searchbutton" id="close-img-js" aria-label="Cancel" /></button>
+                    <button tabIndex="2" className="searchbutton" id="search-img-js" aria-label="Search"><img src="../media/search/round_search_black_24dp.png" alt="search" class="searchimg" /></button> */}
                 </div>
                 <div className="middle">
                     <div className="borderbetween globalsearchremove"></div>
@@ -39,7 +43,10 @@ export default function Orgs() {
                 </ul>
                 </div>
             </div>
-            <script src="searchbar.js" defer></script>
+            {/* <Helmet>
+                <script src="./searchbar.js" defer></script>
+            </Helmet> */}
+            </div>
             <button onClick={callAPI}>Make API call</button>
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
